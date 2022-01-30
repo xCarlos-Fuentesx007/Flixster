@@ -88,11 +88,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
             // PlaceHolder
             Glide.with(context)
-                    .load(
-                            context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT?
-                                    movie.getPosterPath(): movie.getBackdropPath())
+                    .load(imageUrl)
                     .placeholder(R.drawable.loading)
-                    .fitCenter()
+                    .error(R.drawable.loading)
                     .into(ivPoster);
         }
     }
