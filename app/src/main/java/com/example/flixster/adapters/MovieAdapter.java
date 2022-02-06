@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.flixster.DetailActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
@@ -102,6 +104,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     .placeholder(R.drawable.loading)
                     .error(R.drawable.loading)
                     .into(ivPoster);
+            int radius = 50;
+            Glide.with(context).load(imageUrl).apply(new RequestOptions().fitCenter().transform(new RoundedCorners(radius))).into(ivPoster);
 
             // click listener on movie container
             // 1. Register click listenter on the whole row
